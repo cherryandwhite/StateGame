@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "clue": "\"The Garden State\"",
+            "difficulty": 2,
+            "category": "random"
+        },
+        {
+            "clue": "The governor of this state is/was Chris Christie",
+            "difficulty": 3,
+            "category": "people"
+        },
+        {
+            "clue": "The state was \"Stronger than the Storm\" after Hurricane Sandy in 2012",
+            "difficulty": 4,
+            "category": "random"
+        },
+        {
+            "clue": "Home to the Trump Taj Mahal Casino",
+            "difficulty": 3,
+            "category": "buildings"
+        }
+    ]
+}

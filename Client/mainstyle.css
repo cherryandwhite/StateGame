@@ -1,0 +1,29 @@
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#topbar {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+
+    background-color: rgba(255,255,255,0.5);
+}
+
+.player {
+    position: fixed;
+    width: 50%;
+}
+
+#thatplayer {
+    right: 50%;
+}
+

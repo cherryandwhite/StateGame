@@ -1,0 +1,44 @@
+{
+    "questions": [
+        {
+            "clue": "It is the only state to have been created by Presidential proclamation. (Hint: During the Civil War)",
+            "difficulty": 3,
+            "category": "history"
+        },
+        {
+            "clue": "Mother's Day was first observed here in 1908",
+            "difficulty": 4,
+            "category": "random"
+        },
+        {
+            "clue": "The nation's first sales tax went into effect here in 1921",
+            "difficulty": 4,
+            "category": "history"
+        },
+        {
+            "clue": "It's motto is \"Mountaineers are always free\"",
+            "difficulty": 3,
+            "category": "random"
+        },
+        {
+            "clue": "This state has the highest average altitude of any state east of the Mississipi River",
+            "difficulty": 3,
+            "category": "geography" 
+        },
+        {
+            "clue": "Home to the site of John Brown's raid",
+            "difficulty": 2,
+            "category": "history"
+        },
+        {
+            "clue": "Country singer Brad Paisley was born here",
+            "difficulty": 4,
+            "category": "people"
+        },
+        {
+            "clue": "\"From a town known as Wheeling ____ rode a boy with a six-gun in his hand....\"",
+            "difficulty": 3,
+            "category": "people"
+        }
+    ]
+}

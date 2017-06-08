@@ -1,0 +1,44 @@
+{
+    "questions": [
+        {
+            "clue": "Independence Hall",
+            "difficulty": 2,
+            "category": "buildings"
+        },
+        {
+            "clue": "Benjamin Franklin lived here",
+            "difficulty": 2,
+            "category": "people"
+        },
+        {
+            "clue": "It is the first state of the fifty United States to list their web site URL on a license plate.",
+            "difficulty": 4,
+            "category": "random"
+        },
+        {
+            "clue": "The first baseball stadium was built in Pittsburgh here",
+            "difficulty": 2,
+            "category": "sports"
+        },
+        {
+            "clue": "Home to the chocolate capital of the United States (Hershey)",
+            "difficulty": 3,
+            "category": "places"
+        },
+        {
+            "clue": "The first daily newspaper was published here in 1784",
+            "difficulty": 4,
+            "category": "history"
+        },
+        {
+            "clue": "The first oil well was opened in Titusville in 1859",
+            "difficulty": 4,
+            "category": "history"
+        },
+        {
+            "clue": "Betsy Ross supposedly made the first American Flag in Philadephia in this state",
+            "difficulty": 1,
+            "category": "history"
+        }
+    ]
+}

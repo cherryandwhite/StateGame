@@ -1,0 +1,49 @@
+{
+    "questions": [
+        {
+            "clue": "Comedian Alec Baldwin was born here",
+            "difficulty": 3,
+            "category": "people"
+        },
+        {
+            "clue": "Donald Trump was born here",
+            "difficulty": 1,
+            "category": "people"
+        },
+        {
+            "clue": "Home to Trump Towers",
+            "difficulty": 1,
+            "category": "buildings"
+        },
+        {
+            "clue": "Woodstock music festival was held here",
+            "difficulty": 2,
+            "category": "history"
+        },
+        {
+            "clue": "Its main city has over 722 miles of subway track",
+            "difficulty": 3,
+            "category": "random"
+        },
+        {
+            "clue": "Home to the first railroad in America",
+            "difficulty": 3,
+            "category": "history"
+        },
+        {
+            "clue": "The Big Apple",
+            "difficulty": 1,
+            "category": "places"
+        },
+        {
+            "clue": "Niagra State Park, located in this state, was the first in America",
+            "difficulty": 2,
+            "category": "places"
+        },
+        {
+            "clue": "The Catskill Mountains can be found here",
+            "difficulty": 3,
+            "category": "places"
+        }
+    ]
+}
