@@ -1,0 +1,67 @@
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: absolute;
+    height: 100%;
+    width: 85%;
+}
+
+#topbar {
+    position: fixed;
+    height: 0px;
+    width: 100%;
+
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* Right Bar */
+/* Lists the players and their respective progresses */
+#sb {
+    position: fixed;
+    height: 100%;
+    width: 15%;
+    right: 0px;
+    top: 0px;
+}
+
+.nameTag {
+    position: relative;
+    width: 50%;
+}
+
+.scoreTag {
+    position: relative;
+    margin-left: 50%;
+    width: 50%;
+}
+
+.sideBarItem {
+    height: 80px;
+}
+
+#bb {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+
+    bottom: 0px;
+    left: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player {
+    position: fixed;
+    width: 50%;
+}
+
+#thatplayer {
+    right: 50%;
+}
+
+

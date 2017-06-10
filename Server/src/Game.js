@@ -25,6 +25,9 @@ class Game {
         // Get a list of every state we have questions for
         this.states = this.questionGetter.getAllStates();
 
+        // Save the socket that is the administrator of this rrom
+        this.admin = null;
+
     }
     /*
     class Game {
@@ -111,6 +114,44 @@ class Game {
 
     }
 
+    /* Helper Methods */
+    sendQuestionTo(socket) {
+
+        // Get a question
+        var question = self.questionGetter.nextQuestionForSocket(socket);
+        
+        // Make sure the question actually exists
+        if (question != null) {
+
+            // Add the question to the questions property of the socket
+            if(socket.questions == undefined) {
+                socket.questions = [question];
+            } else {
+                socket.questions.push(question);
+            }
+
+            // Emit an event to the user with the new question
+            socket.emit('question', question);
+        }
+
+        // Do this in the background...
+        process.nextTick(function(){});
+    }
+
+    sendAllConnectedUsersToSocket(socket) {
+
+        // Create an array of all the joined usernames
+        var usernames = [];
+
+        // Loop over every client in the game
+        for(var player in this.nsp.clients()) {
+            usernames.push(player.username);
+        }
+
+        // Emit the event to the client
+        socket.emit('players', usernames);
+    }
+
     // Utility method to generate a random string of a given length
     randomString(length) {
         var text = "";
@@ -147,6 +188,11 @@ class Game {
         return null;
     }
 
+    // Utility method for seeing if a socket is the administrator of this room
+    isAdmin(socket) {
+        return (this.admin.id == socket.id);
+    }
+
     prepareListeners() {
 
         var self = this;
@@ -160,7 +206,6 @@ class Game {
                 console.log('[event]: ' + username + ' asked to join');
 
                 // Attempt to join the user with the name they gave
-
                 self.joinUser(socket, username, function(success) {
                     console.log("[debug]: User joined!");
                     // If the user joined
@@ -205,26 +250,31 @@ class Game {
             // The user asks for a new question
             socket.on('next_question', function() {
 
-                // Get a question
-                console.log(socket.states);
-                var question = self.questionGetter.nextQuestionForSocket(socket);
-                console.log(JSON.stringify(question));
-                // Make sure the question actually exists
-                if (question != null) {
-
-                    // Add the question to the questions property of the socket
-                    if(socket.questions == undefined) {
-                        socket.questions = [question];
-                    } else {
-                        socket.questions.push(question);
-                    }
-
-                    // Emit an event to the user with the new question
-                    socket.emit('question', question);
-                }
+                // Use the helper function
+                self.sendQuestionTo(socket);
 
                 // Push this to background
                 process.nextTick(function() {});
+            });
+
+            // When the 'start_game' is sent, we'll send the first question to all the players
+            socket.on('start_game', function() {
+
+                // Verify the sender is the one that created this game
+                if(!isAdmin(socket)) {
+                    return;
+                }
+
+                // For each socket, send the next question
+                for(var socket in nsp.clients()) {
+
+                    // Use the helpoer function to send them their next question
+                    self.sendQuestionTo(socket);
+                }
+
+                // Don't wait for this function to finish
+                process.nextTick(function(){});
+
             });
         });
     }
