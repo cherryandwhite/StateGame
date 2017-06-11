@@ -14,7 +14,7 @@ class BottomBar {
         this.menuDivButton.addEventListener("click", this.buttonPressed())
 
         // The default state is hiding the bar
-        this.cardDiv.style.visibility = 'hidden';
+        this.cardDiv.style.display = 'block';
 
         // The callback for when the button is pressed
         this.buttonCallback = null;
@@ -22,12 +22,12 @@ class BottomBar {
 
     // Allow the bar to be shown
     show() {
-        this.cardDiv.style.visibility = '';
+        this.cardDiv.style.display = 'block';
     }
 
     // Allow the bar to be hidden
     hide() {
-        this.cardDiv.style.visibility = 'hidden';
+        this.cardDiv.style.display = 'none';
     }
 
     // Set the title
@@ -42,22 +42,22 @@ class BottomBar {
 
     // Show the progress bar
     loading() {
-        this.progressbar.style.visibility = '';
+        this.progressbar.style.display = 'block';
     }
 
     // Set the progress bar to hidden
     stopLoading() {
-        this.progressbar.style.visibility = 'hidden';
+        this.progressbar.style.display = 'none';
     }
 
     // Show and hide the menu in the top right
     showMenu() {
-        this.menuDiv.style.visibility = '';
+        this.menuDiv.style.display = 'block';
     }
 
     // Hide the menu div
     hideMenu() {
-        this.menuDiv.style.visibility = 'hidden';
+        this.menuDiv.style.display = 'none';
     }
 
     // Set the text of the menu button
@@ -83,7 +83,9 @@ class BottomBar {
     showMessage(title, text, button, callback) {
 
         // Set the callback for button presses
-        this.buttonCallback = callback;
+       this.menuDivButton.addEventListener("click", function() {
+           callback();
+       });
 
         // Show/Hide some of the extras
         this.showMenu();

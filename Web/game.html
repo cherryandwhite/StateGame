@@ -1,0 +1,244 @@
+<html>
+    <head>
+        
+        <!-- Use my custom CSS -->
+        <link rel="stylesheet" href="mainstyle.css">
+
+        <!-- Use jQuery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+          
+
+        <!-- Mapping libraries -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+		<script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.min.js"></script>
+
+        <!-- Load the modal library -->
+        <script src="lib/Modal.js"></script> 
+
+        <!-- Load the bottom bar library -->
+        <script src="lib/BottomBar.js"></script>
+
+        <!-- Load the right bar library -->
+        <script src="lib/SideBar.js"></script>
+
+        <!-- Load the progress spinner library -->
+        <script src="lib/Loading.js"></script>
+
+        <!-- Load Socket.IO libraries -->
+        <script src="lib/socket.io.js"></script>
+
+        <!-- Load API Script Dependencies -->
+        <script src="lib/Question.js"></script>
+
+        <!-- Load the API Script -->
+        <script src="api.js"></script>
+
+        <!-- Load the URL parsing helper class -->
+        <script src="lib/UrlParser.js"></script>
+    </head>
+
+    <body>
+        
+        <!-- The base view of the page -->
+        <div id="container">
+
+            <!-- The map view -->
+            <div id="map">
+
+                <!-- The top bar section -->
+                <div id="topbar">
+
+                    <!-- Add a button to start the game -->
+                    <div id="startGame" style="visibility: hidden">
+                        <button id="startGame_Button" class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Start Game
+                            </button>
+                    </div>
+                </div>
+
+                <!-- The bottom (question bar) section -->
+                <div id="bb">
+                    
+                    <!-- The question card -->
+                    <div id="bb_Card" class="demo-card-wide mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title">
+                            <h2 id="bb_Card_Title" class="mdl-card__title-text">Nice job!</h2>
+                        </div>
+                        <div id="bb_Card_Text" class="mdl-card__supporting-text">
+                            <strong>49</strong> states to go!
+                        </div>
+
+                        <!-- The loading bar -->
+                        <div id="bb_Card_Loading" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+
+                        <!-- The next question badge -->
+                        <div id="bb_Card_Menu" class="mdl-card__menu">
+                            <button id="bb_Card_Menu_Button" class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The sidebar list of player scores -->
+            <div id="sb">
+
+                <!-- The material design listview -->
+                <ul id="sb_ListView" class="demo-list-control mdl-list">
+
+                    <!-- Programatically created items go here ... -->
+                    <!-- See BottomBar.js for templating -->
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Modal views which are hidden by default -->
+            <!-- Default Text Input Modal Structure -->
+           
+
+        <!-- Define the HTML for a modal popup -->
+        <dialog class="mdl-dialog"id="textInputModal">
+            <h4 class="mdl-dialog__title" id="textInputModal_Title">Test Modal Dialog</h4>
+                <div class="mdl-dialog__content">
+                    <p id="textInputModal_Subtitle"></p>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="textInputModal_Input">
+                        <label class="mdl-textfield__label" for="textInputModal_Input" id="textInputModal_Label">Text...</label>
+                    </div>
+                </div>
+                <div class="mdl-dialog__actions">
+                    <button type="button" class="mdl-button" id="textInputModal_SubmitButton" onclick="submitModalTextPopup()">Agree</button>
+                    <button type="button" class="mdl-button close" id="textInputModal_CancelButton" onclick="cancelModalTextPopup()">Disagree</button>
+                </div>
+        </dialog>
+        <input type="hidden" id="textInputModal_Stage"></input>
+        
+        <!-- Define the HTML for a modal popup without an input -->
+        <dialog class="mdl-dialog"id="textDisplayModal">
+            <h4 class="mdl-dialog__title" id="textDisplayModal_Title">Test Modal Dialog</h4>
+            <div class="mdl-dialog__content">
+                <p id="textDisplayModal_Content"></p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button" id="textInputModal_OKButton" onclick="submitModalTextPopup()">Agree</button>
+            </div>
+        </dialog>
+    </body>
+
+        <!-- Almost Last, but not least, Create an instance of the API 
+          - If we did it any sooner, initilizer for BottomBar.js
+          - wouldn't work because the HTML element wounldn't have been created yet  
+    -->
+        <script>
+            var api = new API("http://localhost:3000");
+            api.uiBindings();
+        </script>
+
+    <!-- Handle the dialogs -->
+    <script>
+
+        // Create empty properties for the modals in case we use them
+        var gameCodeModal = null;
+        var usernameModal = null;
+
+        function joinConnectionV1() {
+            // Create the modal
+            gameCodeModal = new TextInputModal("game_code_selection", "Enter game code", "This will be supplied by the person running your game", "Game Code")
+            usernameModal = new TextInputModal("username_selection" , "Pick a username", "This is how other players will see you", "Username");
+
+            // Show the modal
+            gameCodeModal.show();
+        }
+
+        // Register a callback
+        function modalTextPopupText(id, text) {
+
+            // If we're handling the game code modal
+            if(id == "game_code_selection") {
+
+                // Connect with the api
+                api.room = text;
+                api.connect();
+             }
+
+            // If we're handling the username modal
+            if(id == "username_selection") {
+
+                // Emit the join event using the API
+                api.joinWithUsername(text);
+            }
+        }
+
+        function joinWithV2(room, name) {
+            api.room = room;
+            api.connect();
+            api.joinWithUsername(name);
+
+            // Start the progress spinner
+            loadOnDiv("container");
+        }
+
+        // Parse the page's url
+        var pageUrl = new UrlParser(window.location.href);
+
+        // Determine which method to use
+        if(pageUrl.metadataVersion < 2) {
+            joinConnectionV1();
+        } else if(pageUrl.metadataVersion == 2) {
+            
+            // Get the room id and the name the user is to join with
+            var roomId = pageUrl.gameId;
+            var username = pageUrl.username;
+
+            // Join using the helper function
+            joinWithV2(roomId,username);
+
+            // Check if an admin code was specified
+            if(pageUrl.adminCode != null) {
+                api.adminCode = pageUrl.adminCode;
+                console.log(pageUrl.adminCode);
+                // If it was, grant ourself admin privlidges
+                api.becomeAdmin();
+            }
+
+        }
+        
+    </script>
+
+    <!-- Handle connections to the game server -->
+    <script>
+
+        // Delegate method called when the API makes a connection with Socket.IO
+        function connectedToRoom() {
+
+            // Ask the user for their name so we can join the room
+            //usernameModal.show();
+        }
+    </script>
+
+    <!-- After the DOM loads, load the map view into the map's div using javascript -->
+        <script>
+    	    var map = new Datamap({
+                element: document.getElementById('map'),
+                scope: 'usa',
+                geographyConfig: {
+                    popupOnHover: false
+                },
+                done: function(datamap) {
+                    datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                        if(api.mapEnabled) {
+                            api.answer(geography.properties.name);
+                            alert(geography.properties.name);
+                        }
+                    });
+                }
+            });
+	    </script>
+</html>

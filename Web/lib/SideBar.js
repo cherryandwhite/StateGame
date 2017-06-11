@@ -50,7 +50,7 @@ class SideBar {
     }
 
     updatePlayerScore(playerName, playerScore, gameTarget) {
-
+console.log((this.prefix + "_ListItem_" + playerName + '_Score'));
         // Set the innerHTML for the player's label using the prefix
         document.getElementById(this.prefix + "_ListItem_" + playerName + '_Score').innerHTML = playerScore + "/" + gameTarget;
    

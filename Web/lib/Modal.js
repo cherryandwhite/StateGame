@@ -44,6 +44,34 @@ class TextInputModal {
     }
 }
 
+class TextDisplayModal {
+    constructor(id, title, content) {
+        this.id = id;
+        this.title = prompt;
+        this.content = content;
+    }
+
+    show() {
+
+        // Apply the properties to the HTML
+        document.getElementById("textDisplayModal_Title").innerHTML = this.title;
+        document.getElementById("textDisplayModal_Content").innerHTML = this.content;
+        document.getElementById("textDisplayModal_OKButton").innerHTML = "OK";
+        document.getElementById("textDisplayModal_Stage").value = this.id;
+
+        // Perform Modal Dialog setup operations even if they've been done before
+        var dialog = document.getElementById('textDisplayModal');
+    
+        if (! dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        
+        // Show the dialog
+        dialog.showModal();
+        
+    }
+}
+
 // Setup handlers for the various modal types
 function submitModalTextPopup() {
 
