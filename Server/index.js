@@ -9,6 +9,24 @@ console.log("Running tests on question maker...");
 
 var Game = require('./src/Game.js').class;
 
-// Create a sample game
-var sampleGame = new Game(io);
-sampleGame.prepareListeners();
+io.on('connection', function(socket) {
+
+    // If the socket makes a new game
+    socket.on('new_game', function() {
+
+        // Create the game
+        var game = new Game(io);
+        game.admin = socket;
+        game.prepareListeners();
+
+        // Emit an event to the client telling them the ID of their game
+        socket.emit('game_created', game.id, game.adminCode);
+
+        // Push this to background
+        process.nextTick(function(){
+            console.log("Finished processing game " + game.id);
+
+        });
+
+    });
+});
