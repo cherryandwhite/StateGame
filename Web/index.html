@@ -1,7 +1,9 @@
 <html>
    <head>
-      <!-- Use my custom CSS -->
-      <link rel="stylesheet" href="mainstyle.css">
+      
+    <!-- Get the config script -->
+    <script src="config.js"></script>
+
       <!-- Use jQuery -->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -13,13 +15,20 @@
       <script src="joinapi.js"></script>
       <!-- Load the UI handler script -->
       <script src="joinui.js"></script>
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+      <!-- Use my custom CSS -->
+      <link rel="stylesheet" href="mainstyle.css">
 
  <!--  animation includes -->
         <link rel="stylesheet" href="lib/animate.min.css">
         <script src="lib/jquery.fittext.js"></script>
         <script src="lib/jquery.lettering-0.6.1.min.js"></script>
         <script src="lib/jquery.textillate.js"></script>
+
+        <!-- Get the table library and the credits page script -->
+        <script src="lib/table.js"></script>
+        <script src="lib/credits.js"></script>
 
       <style>
 
@@ -39,7 +48,7 @@
          width: 50%;
          top: 10%;
          height: 80%;
-         background-color: rgba(255, 255, 255, 0.75);
+         background-color: rgba(255, 255, 255, 0.85);
          border-radius: 4px;
 
          -moz-animation-delay: 0.5s;
@@ -90,12 +99,13 @@
          <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
                <!-- Title -->
-               <span class="mdl-layout-title">State Game</span>
+               <span class="mdl-layout-title" id="titleLabel">State Game</span>
                <!-- Add spacer, to align navigation to the right -->
                <div class="mdl-layout-spacer"></div>
                <!-- Navigation -->
                <nav class="mdl-navigation">
                   <a class="mdl-navigation__link" href="faq.html">How to Play</a>
+                  <a class="mdl-navigation__link" onclick="showCreditsPage()">Credits</a>
                </nav>
             </div>
          </header>
@@ -167,9 +177,31 @@
 
   <span class="footerSpan">
     <strong>Made with  ❤️ by <a href="http://brendanmanning.com/r/?l=http://github.com/brendanmanning/">Brendan Manning</a> in the USA 🇺🇸</strong>
-    <br>
+    |
     <a href="terms_and_privacy.html">Terms and Conditions + Privacy Policy</a>
       </span>
+
+      <div id="credits" class="animated fadeIn" style="display: none">
+          <button onclick="closeCreditsPage()" class="mdl-button mdl-js-button mdl-button--accent" style="position: absolute; top: 4px; right: 4px;">
+  Close
+</button>
+        <h3 class="blue">Thank you!</h3>
+        <h6>This project would not have been possible without the use of these amazing frameworks and libraries</h6>
+        <span>Note: Items marked with * indicate that changes were not made, as per the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a></span>
+        <table id="credits_Table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th>Creator</th>
+                    <th>License</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Programatically generate here -->
+            </tbody>
+        </table>
+</div>
+    </div> 
 
          </main>
     
@@ -177,8 +209,18 @@
       
    </body>
    <script>
-       var api = new JoinAPI("{{SERVER_URL}}");
+       var api = new JoinAPI(config.server);
        api.loadHandlers();
     </script>
    <script>prepareJoinUIListeners();</script>
+
+   <!-- Load the custom table view for credits -->
+   <script>
+       loadCreditsTableView();
+    </script>
+
+    <!-- replace labels with config values -->
+    <script>
+        document.getElementById("titleLabel").innerHTML = config.name;
+    </script>
 </html>

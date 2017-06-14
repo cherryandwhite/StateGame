@@ -67,3 +67,20 @@ function prepareJoinUIListeners() {
     var joinGameCodeEvent = new CustomEvent('input');
     joinGameCodeInput.dispatchEvent(joinGameCodeEvent);
 }
+
+function showCreditsPage() {
+
+    // Set the visibility to on
+    document.getElementById("credits").style.display = 'block';
+    document.getElementById("credits").className = "animated bounceIn"
+    
+}
+
+function closeCreditsPage() {
+    // Set the visibility to off
+    var credits = document.getElementById("credits");
+    document.getElementById("credits").className = "animated bounceOut"
+    
+    
+    
+}

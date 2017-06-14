@@ -1,6 +1,9 @@
 <html>
     <head>
         
+    <!-- Get the config script -->
+    <script src="config.js"></script>
+
         <!-- Use my custom CSS -->
         <link rel="stylesheet" href="mainstyle.css">
 
@@ -52,6 +55,9 @@
         <script src="lib/jquery.fittext.js"></script>
         <script src="lib/jquery.lettering-0.6.1.min.js"></script>
         <script src="lib/jquery.textillate.js"></script>
+
+        <!-- Get a text pretty-er script -->
+        <script src="lib/textlib.js"></script>
 
     </head>
 
@@ -108,7 +114,7 @@
                     <div class="animated zoomInUp" id="adminSplashContent">
                         <h2 class="white">Ready to play!</h2>
                         <h4 class="white">Tell your friends to <strong>enter the code</strong></h4>
-                        <h3 class="pink">4 A 6 B 8</h3>
+                        <h3 class="pink" id="code">4 A 6 B 8</h3>
                         <h4 class="white">Then click below to begin the game</h4>
                         <button id="startGame_Button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                             Start Game!
@@ -158,7 +164,7 @@
           - wouldn't work because the HTML element wounldn't have been created yet  
     -->
         <script>
-            var api = new API("{{SERVER_URL}}");
+            var api = new API(config.server);
             api.uiBindings();
         </script>
 
@@ -217,6 +223,9 @@
             // Get the room id and the name the user is to join with
             var roomId = pageUrl.gameId;
             var username = pageUrl.username;
+
+            // Replace the game id in the HTML
+            document.getElementById("code").innerHTML = spacedLetters(roomId);
 
             // Join using the helper function
             joinWithV2(roomId,username);
