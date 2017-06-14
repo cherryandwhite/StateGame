@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "clue": "The capital is Montgomery",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "Home to Talladega Speedway",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "Hellen Keller was born here",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Rosa Parks historically refused to give up her seat on a public bus in this state's capital",
+            "category": "history",
+            "difficulty": 3
+        },
+        {
+            "clue": "TV Personality Robin Roberts was born in Tuskegee in this state",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Songs by the band with this state's namesake include <i>Mountain Music</i> and <i>Dixieland Delight</i>",
+            "category": "music",
+            "difficulty": 3
+        }
+    ]
+}

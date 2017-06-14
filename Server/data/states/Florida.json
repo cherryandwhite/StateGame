@@ -1,0 +1,49 @@
+{
+    "questions": [
+        {
+            "clue": "This state is know for its elderly \"Snowbird\" population who travel here every year to avoid the winter cold",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "Tallahassee is here",
+            "category": "capitals",
+            "difficulty": 3
+        },
+        {
+            "clue": "Miami and Orlando can be found in this state",
+            "category": "places",
+            "difficulty": 1
+        },
+        {
+            "clue": "The mythical \"Fountain of Youth\" was rumored to be here",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "Everglades National Park is in this state",
+            "category": "places",
+            "difficulty": 2
+        },
+        {
+            "clue": "The Tampa Bay Rays play in this state",
+            "category": "sports",
+            "difficulty": 2
+        },
+        {
+            "clue": "The only East Coast state to have not been part of the original Thirteen Colonies",
+            "category": "history",
+            "difficulty": 3
+        },
+        {
+            "clue": "Pop star Ariana Grande is from this state",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Walt Disney World Resort is enjoyed by millions anually in this state",
+            "category": "places",
+            "difficulty": 1
+        }
+    ]
+}

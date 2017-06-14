@@ -1,0 +1,19 @@
+{
+    "questions": [
+        {
+            "clue": "This state has the highest rate of millionaires per cpaita",
+            "category": "random",
+            "difficulty": 4
+        },
+        {
+            "clue": "Camden Yards is home to the Orioles Baseball team",
+            "category": "sports",
+            "difficulty": 2
+        },
+        {
+            "clue": "Harriet Tubman escaped from slavery in this state",
+            "category": "people",
+            "difficulty": 3
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "questions": [
+        {
+            "clue": "Herbert Hoover, who served as President from 1929-1933, was born in this state",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Des Moines is the capital of this state",
+            "category": "capitals",
+            "difficulty": 3
+        },
+        {
+            "clue": "Davenport and Sioux City are here",
+            "category": "places",
+            "difficulty": 4
+        }
+    ]
+}

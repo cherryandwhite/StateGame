@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "clue": "Seward's Folly",
+            "category": "history",
+            "difficulty": 2
+        },
+        {
+            "clue": "John McCain's running mate in the 2008 election was former governor of this state",
+            "category": "politics",
+            "difficulty": 3
+        },
+        {
+            "clue": "It is the only state within the Artic Circle",
+            "category": "geography",
+            "difficulty": 1
+        },
+        {
+            "clue": "It is the largest state in the USA",
+            "category": "geography",
+            "difficulty": 1
+        },
+        {
+            "clue": "This state borders the Bering Sea",
+            "category": "geography",
+            "difficulty": 3
+        },
+        {
+            "clue": "The capital is Juneau",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "Denali (formery Mount McKinley) can be climbed here",
+            "category": "places",
+            "difficulty": 3
+        }
+    ]
+}

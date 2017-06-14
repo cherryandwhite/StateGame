@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "clue": "Deep Dish Pizza is a trademark of this state's most famous city",
+            "category": "food",
+            "difficulty": 2
+        },
+        {
+            "clue": "This state is home to Lincoln Park Zoo",
+            "category": "places",
+            "difficulty": 4
+        },
+        {
+            "clue": "President Roland Reagan was born here in Tampico",
+            "category": "people",
+            "difficulty": 3
+        },
+        {
+            "clue": "Ray Bradbury, the author of Fahrenheit 451, was born in this state",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Events at the 1968 Democratic National Convention, in this state, sparked protests and riots, most notably in Chicago. What state is Chicago in?",
+            "category": "places",
+            "difficulty": 1
+        },
+        {
+            "clue": "Springfield is the capital of this state",
+            "category": "capitals",
+            "difficulty": 3
+        }
+    ]
+}

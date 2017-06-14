@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "clue": "It is the \"First State\"",
+            "category": "history",
+            "difficulty": 2
+        },
+        {
+            "clue": "The DuPont family is know for its wide influence in this small state",
+            "category": "random",
+            "difficulty": 4
+        },
+        {
+            "clue": "Dover is the capital of this state",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "This state shares an peninsula with Eastern Maryland",
+            "category": "geography",
+            "difficulty": 3
+        },
+        {
+            "clue": "Former Vice President Joe Biden is from this state",
+            "category": "people",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state and New Hampshire are the only East Coast states with no sales tax",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "Bob Marley's son Stephen was born in this state",
+            "category": "people",
+            "difficulty": 4
+        }
+    ]
+}

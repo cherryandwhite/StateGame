@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "clue": "The academically excellent study at Yale University in this state",
+            "category": "education",
+            "difficulty": 2
+        },
+        {
+            "clue": "Hartford is the capital of this state",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "Both Bush Presidents were born in this state, not Texas, despite common belief",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "Revolutionary War hero Nathan Hale who said \"I only regret that I have but one life to lose for my country\" lived in this British Colony",
+            "category": "people",
+            "difficulty": 4
+        },
+        {
+            "clue": "26 people were killed at Sandy Hook Elementary by Adam Lanza in 2012 in what state?",
+            "category": "history",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state sits directly north of Long Island",
+            "category": "geography",
+            "difficulty": 3
+        }
+    ]
+} 

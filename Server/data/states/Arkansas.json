@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "clue": "Hillary Clinton is the Former First Lady of this state",
+            "category": "people",
+            "difficulty": 3
+        },
+        {
+            "clue": "Little Rock is this state's capital",
+            "category": "capitals",
+            "difficulty": 3
+        },
+        {
+            "clue": "It was where 9 African American school children were harassed for trying to go to school",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "You can find the Ozark National Forest here",
+            "category": "places",
+            "difficulty": 4
+        },
+        {
+            "clue": "Its neighbors include Oklahoma and Mississippi",
+            "category": "geography",
+            "difficulty": 4
+        },
+        {
+            "clue": "Bill Clinton's presidential archives are found here",
+            "category": "places",
+            "difficulty": 3
+        }, 
+        {
+            "clue": "Sam Walton (founder of Walmart) is from this state",
+            "category": "people",
+            "difficulty": 4
+        }
+    ]
+}

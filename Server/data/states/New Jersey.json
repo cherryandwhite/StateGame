@@ -19,6 +19,11 @@
             "clue": "Home to the Trump Taj Mahal Casino",
             "difficulty": 3,
             "category": "buildings"
+        },
+        {
+            "clue": "Trenton is the capital of this state",
+            "difficulty": 3,
+            "category": "capitals"
         }
     ]
 }

@@ -1,0 +1,29 @@
+{
+    "questions": [
+        {
+            "clue": "Denver is found here",
+            "category": "capitals",
+            "difficulty": 1
+        },
+        {
+            "clue": "Pike's Peak can be climbed here",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "12 people were killed during a showing of <i>The Dark Night Rises</i> in this state's Aurora Cinamark Theatre",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "This state joined California in being the first to legalize recreational marijuanna in 2012",
+            "category": "history",
+            "difficulty": 2
+        },
+        {
+            "clue" : "Tim Allen, lead actor on ABC's <i>Last Man Standing</i> was born in the same state where his character ran an outdoors store. Where is he from?",
+            "category": "people",
+            "difficulty":4
+        }
+    ]
+}

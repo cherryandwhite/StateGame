@@ -1,0 +1,69 @@
+{
+    "questions": [
+        {
+            "clue": "Sacramento is the capital of this state",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "This state's flag features a grizzly bear",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "English names for cities in this state include Saint Francis and (City of) the Angels",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "The largest state by population",
+            "category": "random",
+            "difficulty": 3
+        },
+        {
+            "clue": "Napa valley is a popular tourist destination in this state",
+            "category": "places",
+            "difficulty":2
+        },
+        {
+            "clue": "The majority of Interstate 5 is in this state",
+            "category": "roads",
+            "difficulty":3
+        },
+        {
+            "clue": "El Capitan can be found here",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "The only President to resign was born in this state",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "<i>\"You can check out any time you like but you can never leave\"</i> describe the fictional Hotel with this state's name",
+            "category": "music",
+            "difficulty": 2
+        },
+        {
+            "clue": "This state has the longest Pacific border of any Continental U.S. state",
+            "category": "geography",
+            "difficulty": 1
+        },
+        {
+            "clue": "This state is home to the majority of Death Valley National Park",
+            "category": "places",
+            "difficulty":2
+        },
+        {
+            "clue": "This state's Warriors are Golden",
+            "category": "sports",
+            "difficulty": 2
+        },
+        {
+            "clue": "The NFL football team named after those who searched for gold in this state plays in the Levi's Stadium",
+            "category": "sports",
+            "difficulty": 3
+        }
+    ]
+}

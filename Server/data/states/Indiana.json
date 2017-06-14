@@ -1,0 +1,29 @@
+{
+    "questions": [
+        {
+            "clue": "Vice President Mike Pence was formerly the governor of this state",
+            "category": "people",
+            "difficulty": 2
+        }, 
+        {
+            "clue": "The singer of <i>Thriller</i> (Michael Jackson) was born in this state",
+            "category": "music",
+            "difficulty": 4
+        },
+        {
+            "clue": "The Indianapolis 500 is held in this state",
+            "category": "sports",
+            "difficulty": 2
+        },
+        {
+            "clue": "Though the Beach Boys may have a tropical sound, Kokomo is actually a city in this state",
+            "category": "random",
+            "difficulty": 4
+        },
+        {
+            "clue": "Indianapolis is the capital of this state",
+            "category": "capitals",
+            "difficulty": 1
+        }
+    ]
+}

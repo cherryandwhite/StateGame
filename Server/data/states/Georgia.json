@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "clue": "Atlanta is the capital of this state",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "This state shares its name with a country on the Black Sea",
+            "category": "random",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state is known for the peach",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "President Jimmy Carter is from this state",
+            "category": "people",
+            "difficulty": 3
+        },
+        {
+            "clue": "General William Sherman \"Marched to the Sea\" and destroyed everything in his path - including this state's capital - during the Civil War",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "Chattahoochee National Forest is found in the northern portion of this state",
+            "category": "places",
+            "difficulty": 4
+        }
+    ]
+}

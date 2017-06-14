@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "clue": "This state looks like a microscope",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "Sacajawea lived in this present-day state",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "This state is best known for its potatoes",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "Boise is the capital of this state",
+            "category": "capitals",
+            "difficulty": 3
+        },
+        {
+            "clue": "Brigham Young University is in this state",
+            "category": "education",
+            "difficulty": 4
+        },
+        {
+            "clue": "This state borders Canada, Washington State, and Montana, among others",
+            "category": "geography",
+            "difficulty": 3
+        }
+    ]
+}

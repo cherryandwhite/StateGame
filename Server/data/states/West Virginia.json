@@ -1,7 +1,7 @@
 {
     "questions": [
         {
-            "clue": "It is the only state to have been created by Presidential proclamation. (Hint: During the Civil War)",
+            "clue": "It is the only state to have been created by a Presidential Act. (Hint: During the Civil War)",
             "difficulty": 3,
             "category": "history"
         },
@@ -26,7 +26,7 @@
             "category": "geography" 
         },
         {
-            "clue": "Home to the site of John Brown's raid",
+            "clue": "Home to the site of John Brown's raid in Harper's Ferry",
             "difficulty": 2,
             "category": "history"
         },
@@ -36,7 +36,7 @@
             "category": "people"
         },
         {
-            "clue": "\"From a town known as Wheeling ____ rode a boy with a six-gun in his hand....\"",
+            "clue": "\"From a town known as Wheeling [...] rode a boy with a six-gun in his hand....\" Where is Wheeling?",
             "difficulty": 3,
             "category": "people"
         }
