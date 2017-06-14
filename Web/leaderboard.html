@@ -1,0 +1,74 @@
+<html>
+    <head>
+         <!-- Use my custom CSS -->
+        <link rel="stylesheet" href="leaderboard.css">
+
+        <!-- Use jQuery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <!-- Material design related includes -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+        <!-- Text animation includes -->
+        <link rel="stylesheet" href="lib/animate.min.css">
+        <script src="lib/jquery.fittext.js"></script>
+        <script src="lib/jquery.lettering-0.6.1.min.js"></script>
+        <script src="lib/jquery.textillate.js"></script>
+
+        <!-- Get custom JS dependencies -->
+        <script src="lib/Player.js"></script>
+
+        <!-- Use the main script for this page -->
+        <script src="leaderboard.js"></script>
+
+    </head>
+
+    <body>
+        <div class="leaderBoardTableDiv">
+            <h2 class="white leaderBoardTableHeader">Game Over!</h2>
+            <h6 class="white leaderBoardTableSubtitle">Here's how everyone did:</h6>
+            <table id="leaderBoardTable" class="animated zoomInLeft mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--numeric">Place</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <button id="playAgainButton" class="animated fadeIn mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                Play Again
+            </button>
+        </div>
+    </body>
+
+     <!-- Load the page data -->
+    <script>
+        loadTableView(getPlayersArray());
+    </script>
+
+    <!-- Prepare UI event listeners -->
+    <script>
+        prepareUI();
+    </script>
+
+    <!-- Animate the header text -->
+    <script>
+
+        // Run on DOM load
+        $(function() {
+
+            // The main (<h1>) tag
+            $('.leaderBoardTableHeader').textillate({ in: { effect: 'rotateInUpLeft' } });
+
+            // The subtitle (<h4>) tag
+            $('.leaderBoardTableSubtitle').textillate({ in: { effect: 'fadeIn', sync: true } });
+        });
+    </script>
+</html>

@@ -8,7 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
           
 
@@ -16,6 +16,9 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 		<script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.min.js"></script>
+
+        <!-- Load the player prototype -->
+        <script src="lib/Player.js"></script>
 
         <!-- Load the modal library -->
         <script src="lib/Modal.js"></script> 
@@ -29,6 +32,9 @@
         <!-- Load the progress spinner library -->
         <script src="lib/Loading.js"></script>
 
+        <!-- Load the countdown timer script -->
+        <script src="lib/countdown.js"></script>
+
         <!-- Load Socket.IO libraries -->
         <script src="lib/socket.io.js"></script>
 
@@ -40,6 +46,13 @@
 
         <!-- Load the URL parsing helper class -->
         <script src="lib/UrlParser.js"></script>
+
+        <!-- Text animation includes -->
+        <link rel="stylesheet" href="lib/animate.min.css">
+        <script src="lib/jquery.fittext.js"></script>
+        <script src="lib/jquery.lettering-0.6.1.min.js"></script>
+        <script src="lib/jquery.textillate.js"></script>
+
     </head>
 
     <body>
@@ -50,18 +63,23 @@
             <!-- The map view -->
             <div id="map">
 
-                <!-- The top bar section -->
-                <div id="topbar">
+                <!-- The map will be placed here programatically -->
 
-                    <!-- Add a button to start the game -->
-                    <div id="startGame" style="visibility: hidden">
-                        <button id="startGame_Button" class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Start Game
-                            </button>
-                    </div>
-                </div>
+            </div>
+ 
+            <!-- The sidebar list of player scores -->
+            <div id="sb">
 
-                <!-- The bottom (question bar) section -->
+                <!-- The material design listview -->
+                <ul id="sb_ListView" class="demo-list-control mdl-list">
+
+                    <!-- Programatically created items go here ... -->
+                    <!-- See BottomBar.js for templating -->
+
+                </ul>
+            </div>
+        </div>
+        <!-- The bottom (question bar) section -->
                 <div id="bb">
                     
                     <!-- The question card -->
@@ -84,21 +102,24 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- The sidebar list of player scores -->
-            <div id="sb">
+                <!-- Add a button to start the game -->
+                <div id="adminSplashPage" style="visibility: hidden">
+                    <div class="animated zoomInUp" id="adminSplashContent">
+                        <h2 class="white">Ready to play!</h2>
+                        <h4 class="white">Tell your friends to <strong>enter the code</strong></h4>
+                        <h3 class="pink">4 A 6 B 8</h3>
+                        <h4 class="white">Then click below to begin the game</h4>
+                        <button id="startGame_Button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                            Start Game!
+                         </button>
+                    </div>
+                </div>
 
-                <!-- The material design listview -->
-                <ul id="sb_ListView" class="demo-list-control mdl-list">
-
-                    <!-- Programatically created items go here ... -->
-                    <!-- See BottomBar.js for templating -->
-
-                </ul>
-            </div>
-        </div>
-
+                <!-- Add a countdown time until the start of the game -->
+                <div id="countdown" class="animated fadeOut" style="visibility: hidden">
+                    <span class="animated bounceInUp white" id="countdown_Number">3</span>
+                </div>
         <!-- Modal views which are hidden by default -->
             <!-- Default Text Input Modal Structure -->
            
@@ -137,7 +158,7 @@
           - wouldn't work because the HTML element wounldn't have been created yet  
     -->
         <script>
-            var api = new API("http://localhost:3000");
+            var api = new API("{{SERVER_URL}}");
             api.uiBindings();
         </script>
 
@@ -228,14 +249,18 @@
     	    var map = new Datamap({
                 element: document.getElementById('map'),
                 scope: 'usa',
+                fills: {
+                    defaultFill: '#81d4fa'
+                },
                 geographyConfig: {
-                    popupOnHover: false
+                    popupOnHover: false,
+                    borderColor: '#2187f4',
+                    highlightFillColor: '#E91E63',
                 },
                 done: function(datamap) {
                     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
                         if(api.mapEnabled) {
                             api.answer(geography.properties.name);
-                            alert(geography.properties.name);
                         }
                     });
                 }

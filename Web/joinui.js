@@ -1,10 +1,10 @@
 function prepareJoinUIListeners() {
     var newGameNameInput = document.getElementById("new-game_NameInput");
-    var newGameTermsInput = document.getElementById("new-game_TermsCheckbox");
+    var newGameGoalInput = document.getElementById("new-game_GoalInput");
     var newGameCreateButton = document.getElementById("new-game_CreateButton");
 
     var newGameNameDiv = document.getElementById("new-game_Name");
-    var newGameTermsDiv = document.getElementById("new-game_Terms");
+    var newGameGoalDiv = document.getElementById("new-game_Goal");
     var newGameButtonDiv = document.getElementById("new-game_Create");
 
     var joinGameCodeInput = document.getElementById("join-game_GameInput");
@@ -17,23 +17,23 @@ function prepareJoinUIListeners() {
 
     // Create handlers
     newGameNameInput.addEventListener('input', function() {
-        console.log(newGameNameInput.value);
         if(newGameNameInput.value.length >= 3) {
-            newGameTermsDiv.style.visibility = '';
+            newGameGoalDiv.style.visibility = '';
         } else {
-            newGameTermsDiv.style.visibility = 'hidden';
+            newGameGoalDiv.style.visibility = 'hidden';
             newGameCreateButton.style.visibility = 'hidden';
         }
     });
 
-    newGameTermsInput.addEventListener('change', function() {
-        if(newGameTermsInput.checked) {
-            newGameCreateButton.style.visibility = ''
+    newGameGoalInput.addEventListener('input', function() {
+        var value = newGameGoalInput.value;
+        if (value != NaN && value >= 10 && value <= 50) {
+            newGameCreateButton.style.visibility = '';
         } else {
             newGameCreateButton.style.visibility = 'hidden';
         }
-    });
-    
+    })
+
     newGameCreateButton.addEventListener('click', function() {
         api.createGame(newGameNameInput.value);
     })
@@ -63,6 +63,7 @@ function prepareJoinUIListeners() {
     // Trigger the events now so that we hidew all that should be hidden
     var newGameNameEvent = new CustomEvent('input');
     newGameNameInput.dispatchEvent(newGameNameEvent);
+    newGameGoalInput.dispatchEvent(new CustomEvent('input'));
     var joinGameCodeEvent = new CustomEvent('input');
     joinGameCodeInput.dispatchEvent(joinGameCodeEvent);
 }

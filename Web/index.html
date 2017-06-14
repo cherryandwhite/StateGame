@@ -5,7 +5,7 @@
       <!-- Use jQuery -->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
       <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
       <!-- Load Socket.IO libraries -->
       <script src="lib/socket.io.js"></script>
@@ -14,9 +14,18 @@
       <!-- Load the UI handler script -->
       <script src="joinui.js"></script>
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+ <!--  animation includes -->
+        <link rel="stylesheet" href="lib/animate.min.css">
+        <script src="lib/jquery.fittext.js"></script>
+        <script src="lib/jquery.lettering-0.6.1.min.js"></script>
+        <script src="lib/jquery.textillate.js"></script>
+
       <style>
+
+
          .demo-layout-transparent {
-         background: url('assets/img/Earth.jpg') center / cover;
+         background: url('assets/img/America.jpg') center / cover;
          }
          .demo-layout-transparent .mdl-layout__header,
          .demo-layout-transparent .mdl-layout__drawer-button {
@@ -26,25 +35,58 @@
          }
          .mainForm {
          position: absolute;
-         left: 10%;
+         right: 25%;
          width: 50%;
          top: 10%;
          height: 80%;
-         background-color: aliceblue;
+         background-color: rgba(255, 255, 255, 0.75);
+         border-radius: 4px;
+
+         -moz-animation-delay: 0.5s;
+         -o-animation-delay: 0.5s;
+         -webkit-animation-delay: 0.5s;
+         -ms-animation-delay: 0.5s;
+        animation-delay: 0.5s;
          } 
          .full-button {
          width:100%;
          height: 50px;
          position: absolute;
          bottom: 0px;
-         border-bottom-left-radius: 0px;
-         border-bottom-right-radius: 0px;
+         left: 0px;
+         border-bottom-left-radius: 4px;
+         border-bottom-right-radius: 4px;
          }
+
+         #new-game {
+             margin-left: 8px;
+         }
+
+         #join-game {
+             margin-left: 8px;
+         }
+
+         h1, h2, h3, h4, h5, h6 {
+             padding-bottom: 0px;
+             margin-bottom: 0px;
+         }
+
+         .footerSpan {
+             position: fixed;
+             bottom: 4px;
+             margin-left: auto;
+             margin-right: auto;
+             text-align: center;
+             width: 100%;
+             z-index: 10000;
+         }
+
+
       </style>
    </head>
    <body>
       <!-- Uses a transparent header that draws on top of the layout's background -->
-      <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <div id="main" class="demo-layout-transparent mdl-layout mdl-js-layout">
          <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
                <!-- Title -->
@@ -53,14 +95,15 @@
                <div class="mdl-layout-spacer"></div>
                <!-- Navigation -->
                <nav class="mdl-navigation">
-                  <a class="mdl-navigation__link" href="http://brendanmanning.com/r/?l=http://brendanmanning.com">Developer Website</a>
-                  <a class="mdl-navigation__link" href="http://brendanmanning.com/r/?l=http://github.com/brendanmanning/StateGame">Source on Github</a>
+                  <a class="mdl-navigation__link" href="faq.html">How to Play</a>
                </nav>
             </div>
          </header>
          <main class="mdl-layout__content">
+
+
             <!-- Align these items towards the left of the page -->
-            <div class="mainForm">
+            <div class="animated fadeInUp mainForm">
                <!-- The action selector -->
                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                   <div class="mdl-tabs__tab-bar">
@@ -76,14 +119,17 @@
                            <label class="mdl-textfield__label" for="new-game_NameInput">Your name</label>
                         </div>
                      </div>
-                     <div id="new-game_Terms">
-                        <h5>Are we on the same page?</h5>
-                        <br>
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="new-game_TermsCheckbox">
-                        <input type="checkbox" id="new-game_TermsCheckbox" class="mdl-checkbox__input">
-                        <span class="mdl-checkbox__label">I accept the <a href="terms.html">Terms and Conditions</a></span>
-                        </label>
-                     </div>
+                     <div id="new-game_Goal">
+                         <h5>Get this many states to win</h5>
+                        <div>Play to <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" max="50" min="10"id="new-game_GoalInput" value="">
+                                <label class="mdl-textfield__label" for="sample2"># of States (Ex: 25)</label>
+                                <span class="mdl-textfield__error">Enter a number between 10 and 50!</span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
                      <div id="new-game_Create">
                         <!-- Colored raised button -->
                         <button id="new-game_CreateButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored full-button">
@@ -94,7 +140,7 @@
                   <div class="mdl-tabs__panel" id="join-game">
                         <div id="join-game_Code">
                             <h5>Let's find the game</h5>
-                            <p>Enter the code given to you by your friend</p>
+                            <p style="margin-top: 4px; padding-top: 4px; margin-bottom: 0px; padding-bottom: 0px">Enter the code given to you by your friend</p>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="join-game_GameInput">
                                 <label class="mdl-textfield__label" for="join-game_GameInput">Game Code</label>
@@ -107,7 +153,6 @@
                            <label class="mdl-textfield__label" for="join-game_NameInput">Your name</label>
                         </div>
                      </div>
-                     
                      <div id="join-game_Join">
                         <!-- Colored raised button -->
                         <button id="join-game_JoinButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored full-button">
@@ -117,11 +162,22 @@
                   </div>
                </div>
             </div>
+            
+  </div>
+
+  <span class="footerSpan">
+    <strong>Made with  ❤️ by <a href="http://brendanmanning.com/r/?l=http://github.com/brendanmanning/">Brendan Manning</a> in the USA 🇺🇸</strong>
+    <br>
+    <a href="terms_and_privacy.html">Terms and Conditions + Privacy Policy</a>
+      </span>
+
          </main>
+    
       </div>
+      
    </body>
    <script>
-       var api = new JoinAPI("http://localhost:3000");
+       var api = new JoinAPI("{{SERVER_URL}}");
        api.loadHandlers();
     </script>
    <script>prepareJoinUIListeners();</script>

@@ -35,8 +35,11 @@ JoinAPI.prototype.createGame = function(name) {
     // Save the username of the creating user
     this.adminUsername = name;
 
+    // Get the number of units (states or countries we're playing to)
+    var target = Number(document.getElementById("new-game_GoalInput").value);
+
     // Emit the create event
-    this.socket.emit('new_game');
+    this.socket.emit('new_game', 1, target);
 
 }
 

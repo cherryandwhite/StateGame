@@ -8,7 +8,7 @@
 }
 
 body {
-background-image: url('assets/img/Stars.jpg') center / cover;
+background-image: url('assets/img/America.jpg') center / cover;
 }
 
 #map {
@@ -29,10 +29,12 @@ background-image: url('assets/img/Stars.jpg') center / cover;
 /* Lists the players and their respective progresses */
 #sb {
     position: fixed;
-    height: 100%;
+    margin-bottom: 0px;
     width: 15%;
     right: 0px;
     top: 0px;
+
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .nameTag {
@@ -50,16 +52,17 @@ background-image: url('assets/img/Stars.jpg') center / cover;
     height: 80px;
 }
 
+#bb_Card {
+    position: fixed;
+
+    bottom: 8px;
+    right: 8px;
+
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
 #bb {
-    position: absolute;
-    height: auto;
-    width: 100%;
-
-    bottom: 0px;
-    left: auto;
-
-    margin-left: auto;
-    margin-right: auto;
+        
 }
 
 .player {
@@ -71,4 +74,49 @@ background-image: url('assets/img/Stars.jpg') center / cover;
     right: 50%;
 }
 
+#startGame {
+    position: fixed;
+    height: 40px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    padding: 8px;
 
+}
+
+#adminSplashPage {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 20000;
+    background-color: rgb(33, 150, 243);
+}
+
+#adminSplashContent {
+    position: absolute;
+    height: 50%;
+    width: 40%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#countdown {
+    z-index: 20000;
+}
+
+#countdown_Number {
+    font-size: 50%;
+}
+
+.white {
+    color: white;
+}
+
+.pink {
+    color: rgb(233, 30, 99);
+}
