@@ -3,7 +3,7 @@
 
 class Game {
 
-    constructor(io) {
+    constructor(io, mode, goal) {
         // Generate a ID for the game
         this.id = this.randomString(5);
 
@@ -35,6 +35,11 @@ class Game {
         // Whether or not the game has been started
         this.started = false;
 
+        // The number of correct answers that secures a win
+        this.goal = goal;
+
+        // The gamemode
+        this.mode = mode;
     }
     /*
     class Game {
@@ -317,20 +322,21 @@ class Game {
             socket.on('answer_question', (function(answer) {
 
                 // Check the answer
-               
-                   // self.answer(socket, answer, function(correct) {
 this.answer(socket, answer, (function(correct) {
+
+                        // Debug to the console
                         console.log("User answered question:\n" + socket.questions[socket.questions.length - 1].clue + "\nGave answer:\n" + answer + "They answered " + ((correct) ? "correctly" : "incorrectly"));
 
-                        // Tell the user whether they were right or not
-                        
+                            // Tell the user whether they were right or not
                             socket.emit('answer_status', correct);
                       
+                             // Tell all the users that his score was updated
+                            this.nsp.emit('player_score', socket.username, socket.progress);
 
-                        // Tell all the users that his score was updated
-                        
-                            //self.nsp.emit('player_score', socket.progress);
-                        this.nsp.emit('player_score', socket.progress);
+                            // If the user surpassed the number of correct answers needed to win, emit the game_over event
+                            if(socket.progress >= this.goal) {
+                                this.nsp.emit('game_over');
+                            }
                     }).bind(this));
                 
             }).bind(this));

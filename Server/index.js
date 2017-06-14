@@ -12,10 +12,10 @@ var Game = require('./src/Game.js').class;
 io.on('connection', function(socket) {
 
     // If the socket makes a new game
-    socket.on('new_game', function() {
+    socket.on('new_game', function(mode, goal) {
 
         // Create the game
-        var game = new Game(io);
+        var game = new Game(io, mode, goal);
         game.admin = socket;
         game.prepareListeners();
 
