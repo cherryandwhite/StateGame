@@ -125,6 +125,11 @@ API.prototype.loadHandlers = function() {
 
    this.socket.on('answer_status', (function(correct) {
 
+       // If tell the electron app (if there is one) that we were right so we can save stats
+        if(isElectron()) {
+           webviewConnector.sendMessage('answer_correct:' + correct);
+       }
+
         // Present a popup with a message
         this.bottomBar.showMessage(((correct) ? "Correct!" : "Wrong!"), ((correct) ? "Keep the streak alive!" : "Better luck on the next one"), "Next Question", (function() {
 

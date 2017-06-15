@@ -122,8 +122,8 @@ class Game {
 
             console.log(socket.username + " now has " + socket.progress);
 
-            // Add this state to the list of states not to ask again
-            socket.states.push(answer);
+            // Remove this state from the list of states we can still ask
+            socket.states.splice(socket.states.indexOf(answer), 1);
 
             // Save the socket
             this.saveSocket(socket);

@@ -1,8 +1,8 @@
 <html>
     <head>
         
-    <!-- Get the config script -->
-    <script src="config.js"></script>
+        <!-- Get the config script -->
+        <script src="config.js"></script>
 
         <!-- Use my custom CSS -->
         <link rel="stylesheet" href="mainstyle.css">
@@ -43,6 +43,10 @@
 
         <!-- Load API Script Dependencies -->
         <script src="lib/Question.js"></script>
+
+        <!-- The Electron Connector -->
+        <script src="lib/WebviewConnector.js"></script>
+        <script>webviewConnector = new WebviewConnector()</script>
 
         <!-- Load the API Script -->
         <script src="api.js"></script>

@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- Basic HTML headers -->
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>State Game!</title>
+
+    <!-- Load the stylesheet -->
+    <link rel="stylesheet" href="mainstyle.css">
+
+    <!-- Material Design Framework -->
+    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+    <script src="/node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     
-    
+    <!-- Create the div for the main content of the application -->
+    <div id="main" class="main">
+      
+      <!-- The webview for embedding the game -->
+      <webview id="webview" class="fullscreen" src="https://state-game-99bfb.firebaseapp.com/"></webview>
+    </div>
+
+    <!-- The loading screen -->
+    <div id="loading" class="loading">
+
+    </div>
   </body>
 
   <script>

@@ -13,10 +13,11 @@ class QuestionMaker {
         var state = this.randElementOfArray(socket.states);
 
         // Make sure something was returned
-        // If nothing was returned, the array is somehow null (probably we forgot to tell the user they won)
+        // If nothing was returned, a question has been asked for every state
+        // so just reset it to all the states again and recurse
         if (state == null) {
-            console.log("A user got a null question :(");
-            return null;
+            socket.states = this.getAllStates();
+            return this.nextQuestionForSocket(socket);
         }
 
         // Get a random question for that state
