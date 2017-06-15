@@ -13,7 +13,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, titleBarStyle: 'hidden'})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -21,6 +21,14 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  // Hide the menu
+  mainWindow.setMenu(null);
+
+  // Create a chromeless window if we're on mac
+  if(process.platform == 'darwin') {
+    mainWindow.frame = false;
+  }
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
