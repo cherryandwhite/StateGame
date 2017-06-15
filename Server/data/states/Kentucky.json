@@ -1,5 +1,24 @@
 {
 	"questions": [
-	
+		{
+			"clue": "Louisville Slugger baseball bats are manufactured in this state",
+			"category": "sports",
+			"difficulty": 2
+		},
+		{
+			"clue": "Frankfort is the capital of this state",
+			"category": "capitals",
+			"difficulty": 3
+		},
+		{
+			"clue": "Rand Paul and Mitch McConnell are both from this state",
+			"category": "people",
+			"difficulty": 4
+		},
+		{
+			"clue": "American Pharaoh won the horse race derby with this state's name",
+			"category": "sports",
+			"difficulty": 3
+		}
 	]
 }
