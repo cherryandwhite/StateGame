@@ -1,0 +1,39 @@
+{
+	"questions": [
+		{
+            "clue": "Acadia National Park is in what state?",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "Augusta is the capital",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "The border of this North Eastern state was unclear after the Revolutionary War Treaty of Paris",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+            "clue": "This state is known as \"Vacationland\"",
+            "category": "nicknames",
+            "difficulty": 4
+        },
+        {
+            "clue": "Eccentric author Stephen King presently resides in what state?",
+            "category": "people",
+            "difficulty": 3
+        },
+        {
+            "clue": "This is the only state to border New Brunswick, Canada.",
+            "category": "geography",
+            "difficulty": 4
+        },
+        {
+            "clue": "The Salmon Falls River created much of its border with New Hampshire",
+            "category": "geography",
+            "difficulty": 3
+        }
+    ]
+}

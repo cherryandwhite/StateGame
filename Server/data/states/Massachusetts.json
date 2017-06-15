@@ -1,0 +1,44 @@
+{
+	"questions": [
+		{
+            "clue": "Boston is the capital of what state?",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "The Revolutionary War's finest <ul>Tea Party</ul> took place here",
+            "category": "history",
+            "difficulty": 3
+        },
+        {
+            "clue": "Want to spend a summer in Martha's Vineyard? Come to this state to do it!",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "The last of the Salem Witch Trials took place in May 1693 in this early English colony",
+            "category": "history",
+            "difficulty": 3
+        },
+        {
+            "clue": "John F Kennedy belonged to an influential family from which state?",
+            "category": "people",
+            "difficulty": 2
+        },
+        {
+            "clue": "Cape Cod is where?",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "Nantucket Island is in this state",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "Aside from Connecticut, it is the only state to border Rhode Island",
+            "category": "geography",
+            "difficulty": 2
+        }
+    ]
+}

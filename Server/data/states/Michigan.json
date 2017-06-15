@@ -1,0 +1,29 @@
+{
+	"questions": [
+		{
+            "clue": "Automaker \"bail-outs\" profoundly impacted this state's industrial sector",
+            "category": "random",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state looks like a glove",
+            "category": "random",
+            "difficulty": 1
+        },
+        {
+            "clue": "Lansing is the capital of this state",
+            "category": "capitals",
+            "difficulty": 2
+        },
+        {
+            "clue": "The Upper Peninsula of this state carries the slogan \"Salt and Shark Free\" because of its Great Lakes shoreline",
+            "category": "random",
+            "difficulty": 3
+        },
+        {
+            "clue": "Kalamazoo is really fun to say! Where might you go to call it home?",
+            "category": "random",
+            "difficulty": 4
+        }
+    ]
+}
