@@ -24,6 +24,11 @@
 			"clue": "Where do the Royals (an MLB team) play their home games?",
 			"category": "sports"
 			"difficulty": 3
+		},
+		{
+			"clue": "They call this state Midway U.S.A",
+			"category": "random",
+			"difficulty": 3
 		}
 	]
 }
