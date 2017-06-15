@@ -1,0 +1,24 @@
+{
+	"questions": [
+		{
+            "clue": "Shares the name of the river which ends in New Orleans",
+            "category": "namesake",
+            "difficulty": 3
+        },
+        {
+            "clue": "It's not Alabama (It's the other one)",
+            "category": "random",
+            "difficulty": 2
+        },
+        {
+            "clue": "The leading cotton producer in the 1830s",
+            "category": "history",
+            "difficulty": 4
+        },
+        {
+             "clue": "Jackson is the capital here",
+             "category": "capitals",
+             "difficulty": 3
+        }
+    ]
+}

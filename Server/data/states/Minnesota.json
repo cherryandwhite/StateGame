@@ -1,0 +1,29 @@
+{
+	"questions": [
+		{
+            "clue": "Saint Paul is the capital of this state",
+            "category": "capitals",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state is known as \"The land of 10,000 lakes\"",
+            "category": "random",
+            "difficulty": 1
+        },
+        {
+            "clue": "Minneapolis is a major city here",
+            "category": "places",
+            "difficulty": 3
+        },
+        {
+            "clue": "This state was once called \"The Milling Capital of the World\"",
+            "category": "nicknames",
+            "difficulty": 4
+        },
+        {
+            "clue": "The Twins often play chilly baseball games in this state",
+            "category": "sports",
+            "difficulty": 2
+        }
+    ]
+}

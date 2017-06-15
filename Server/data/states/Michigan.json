@@ -24,6 +24,11 @@
             "clue": "Kalamazoo is really fun to say! Where might you go to call it home?",
             "category": "random",
             "difficulty": 4
+        },
+        {
+            "clue": "This state borders each of the Great Lakes, spare Lake Ontario",
+            "category": "geography",
+            "difficulty": 2
         }
     ]
 }
