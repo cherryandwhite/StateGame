@@ -1,0 +1,30 @@
+{
+  "questions":
+    [
+      {
+        "clue": "The Saints play football in this state",
+        "category": "sports",
+        "difficulty": 2
+      },
+      {
+        "clue": "The Mississippi River ends in this state",
+        "category": "geography",
+        "difficulty": 3
+      },
+      {
+        "clue": "New Orleans is in this state",
+        "category": "places",
+        "difficulty": 1
+      },
+      {
+        "clue": "This is the only state in the country with \"parishes\" instead of counties",
+        "category": "random",
+        "difficulty": 3
+      },
+      {
+        "clue": "What is just across the river from Vicksburg in Mississippi",
+        "category": "geography",
+        "difficulty": 4
+      }
+    ]
+ }
