@@ -1,6 +1,30 @@
 {
 	"questions": [
-	
+		{
+			"clue": "Topeka is the capital of this state",
+			"category": "capitals",
+			"difficulty": 3
+		},
+		{
+			"clue": "The Apollo 13 spacecraft is on display at the Cosmosphere in Hutchinson",
+			"category": "places",
+			"difficulty": 4
+		},
+		{
+			"clue": "The issue of popular sovereignty lead to this state's \"Bleeding\" nickname in the lead-up to the Civil War",
+			"category": "history",
+			"difficulty": 3
+		},
+		{
+			"clue": "Dorthy visits the Wizard of Oz in this state",
+			"category": "people",
+			"difficulty": 2
+		},
+		{
+			"clue": "Where do the Royals (an MLB team) play their home games?",
+			"category": "sports"
+			"difficulty": 3
+		}
 	]
 }
   
