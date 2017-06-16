@@ -10,24 +10,42 @@
     <link rel="stylesheet" href="mainstyle.css">
 
     <!-- Material Design Framework -->
-    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
-    <script src="/node_modules/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="lib/material/material.min.css">
+    <script src="lib/material/material.min.js"></script>
   </head>
   <body>
-    
-    <!-- Create the div for the main content of the application -->
-    <div id="main" class="main">
-      
-      <!-- The webview for embedding the game -->
-      <webview id="webview" class="fullscreen" src="https://state-game-99bfb.firebaseapp.com"></webview>
-    </div>
 
     <!-- The loading screen -->
-    <div id="loading" class="loading">
+    <div id="loading" class="loading fullscreen" style="display: none">
+      <div class="mdl-spinner mdl-js-spinner is-active" style="height: 200px; width: 200px;"></div>
+      <h4 class="bottom">Game Loading</h4>
+    </div>
 
+    <!-- Create the div for the main content of the application -->
+    <div id="main" class="fullscreen">
+
+      <!-- The webview for embedding the game -->
+      <webview id="webview" class="fullscreen" src="../Web/index.html"></webview>
     </div>
   </body>
+
+  <script>
+  onload = () => {
+    const webview = document.querySelector('webview')
+    const indicator = document.querySelector('.indicator')
+
+    const loadstart = () => {
+
+    }
+
+    const loadstop = () => {
+      alert("DONE");
+    }
+
+    webview.addEventListener('did-start-loading', loadstart)
+    webview.addEventListener('did-stop-loading', loadstop)
+  }
+  </script>
 
   <script>
     // You can also require other files to run in this process

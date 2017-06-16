@@ -5,3 +5,19 @@
     top: 0px;
     left: 0px;
 }
+
+.loading {
+  display:flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+
+}
+
+.bottom {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

@@ -41,34 +41,6 @@ class Game {
         // The gamemode
         this.mode = mode;
     }
-    /*
-    class Game {
-
-        constructor(io) {
-
-            // Generate a ID for the game
-            this.id = this.randomString(5);
-
-            console.log("New game generated with id: " + this.id);
-
-            // Keep an array of the past questions
-            this.questions = [];
-
-            // Keep the array of users
-            this.players = [];
-
-            // Create a namespace in the Socket.IO io for the game id
-            this.nsp = io.of('/' + this.id);
-
-            // Create an instance of the question getting helper library
-            var QuestionMaker = require('./QuestionMaker.js');
-            this.questionGetter = new QuestionMaker();
-
-            // Get a list of every state we have questions for
-            var states = this.questionGetter.getAllStates();
-        }
-    */
-
 
     // Called to join a socket to the game
     joinUser(socket, username, callback) {
@@ -85,21 +57,10 @@ class Game {
         // Add the username to the socket
         socket.username = username;
         socket.progress = 0;
-        //this.saveSocket(socket);
+        socket.questionsShown = 0;
+        socket.lastQuestionSentAt = -1;
+        socket.fastestQuestionTime = -1;
 
-        // Append the socket to the players array
-        //this.players.push(socket);
-
-        // Let all the other clients know a new player joined...
-
-        // Do that here
-
-        // All good to go!
-        /*
-        process.nextTick(function() {
-            console.log("1");
-            callback(true);
-        });*/
         callback(true);
     }
 
@@ -125,12 +86,15 @@ class Game {
             // Remove this state from the list of states we can still ask
             socket.states.splice(socket.states.indexOf(answer), 1);
 
-            // Save the socket
-            this.saveSocket(socket);
-
             // Tell everyone that their score is now height
             this.nsp.emit('player_score', socket.username, socket.progress);
         }
+
+        // Save the fact that the user answered another question
+        socket.questionsShown += 1;
+
+        // Save the socket
+        this.saveSocket(socket);
 
         // Emit the status of that question to the user
         socket.emit('answer_status', userCorrect);
@@ -146,12 +110,12 @@ class Game {
 
         // Get a question
         var question = this.questionGetter.nextQuestionForSocket(socket);
-        
+
         // Make sure the question actually exists
         if (question != null) {
 
             // Add the question to the questions property of the socket
-            if(socket.questions == undefined) {
+            if (socket.questions == undefined) {
                 socket.questions = [question];
             } else {
                 socket.questions.push(question);
@@ -165,7 +129,7 @@ class Game {
         }
 
         // Do this in the background...
-        process.nextTick(function(){});
+        process.nextTick(function() {});
     }
 
     sendAllConnectedUsersToSocket(socket) {
@@ -174,13 +138,13 @@ class Game {
         var usernames = [];
 
         // Loop over every client in the game
-        for(var key in this.nsp.connected) {
+        for (var key in this.nsp.connected) {
             var player = this.nsp.connected[key];
-           
-            if(player.username != null && player.username != undefined) {
-               // if(player.username != socket.username) {
-                    console.log(player.username + " was already in the game...");
-                    usernames.push(player.username);
+
+            if (player.username != null && player.username != undefined) {
+                // if(player.username != socket.username) {
+                console.log(player.username + " was already in the game...");
+                usernames.push(player.username);
                 //}
             }
         }
@@ -193,16 +157,16 @@ class Game {
 
     sockets() {
         var sockets = [];
-         for(var key in this.nsp.connected) {
+        for (var key in this.nsp.connected) {
             var player = this.nsp.connected[key];
-           console.log(player.username);
-            if(player.username != null && player.username != undefined) {
+            console.log(player.username);
+            if (player.username != null && player.username != undefined) {
                 console.log(player.username);
                 sockets.push(player);
             }
-         }
+        }
 
-         return sockets;
+        return sockets;
     }
 
     // Utility method to generate a random string of a given length
@@ -219,7 +183,7 @@ class Game {
 
     // Utility method to make sure a name isn't already taken
     usernameAvailable(name) {
-        
+
         for (var i = 0; i < this.players.length; i++) {
             console.log(JSON.stringify(this.players[i].username));
             if (this.players[i].username == name) {
@@ -259,14 +223,14 @@ class Game {
         // Send the scores of each player individually
         var sockets = this.sockets();
         console.log(sockets.length);
-        for(var i = 0; i < sockets.length; i++) {
+        for (var i = 0; i < sockets.length; i++) {
             var s = sockets[i];
             console.log("Catching up with " + s.username + " who has " + s.progress);
             socket.emit('player_score', s.username, s.progress);
-            
+
         }
 
-        
+
     }
 
     prepareListeners() {
@@ -278,67 +242,70 @@ class Game {
         // Create one for when a socket joins the namespace (aka the game)
         this.nsp.on('connection', (function(socket) {
 
-            console.log("TXT: "+ this.text);
+            console.log("TXT: " + this.text);
             // The user joins with a nickname
             socket.on('join', (function(username) {
 
-                console.log("Text: "+ this.text);
+                console.log("Text: " + this.text);
 
                 console.log('[event]: ' + username + ' asked to join');
 
                 // Attempt to join the user with the name they gave
                 //self.joinUser(socket, username, function(success) {
-                    socket.username = username;
-        socket.progress = 0;
-                    console.log("[debug]: User joined!");
-                    
-                    // If the user joined
-                    
+                socket.username = username;
+                socket.progress = 0;
+                console.log("[debug]: User joined!");
+
+                // If the user joined
 
 
-                        // Save the list of states to the user's remaining property
-                        //socket.states = self.states;
-                        socket.states = this.states;
-                        console.log("States: " + socket.states);
 
-                        // Save the changes to this socket
-                        this.saveSocket(socket);
+                // Save the list of states to the user's remaining property
+                //socket.states = self.states;
+                socket.states = this.states;
+                console.log("States: " + socket.states);
 
-                        // let the other users know that someone joined
-                       // self.nsp.emit('player_joined', username);
-                       this.nsp.emit('player_joined', username);
-                       
-                        // If the game is already started, catch this user up
-                        if(this.started) {
-                            this.catchUpUser(socket);
-                        }
+                // Save the changes to this socket
+                this.saveSocket(socket);
 
-                        
-                        process.nextTick(function(){console.log("DONE")});
-        
+                // let the other users know that someone joined
+                // self.nsp.emit('player_joined', username);
+                this.nsp.emit('player_joined', username);
+
+                // If the game is already started, catch this user up
+                if (this.started) {
+                    this.catchUpUser(socket);
+                }
+
+
+                process.nextTick(function() {
+                    console.log("DONE")
+                });
+
             }).bind(this));
 
             // The user answers a question
             socket.on('answer_question', (function(answer) {
 
                 // Check the answer
-this.answer(socket, answer, (function(correct) {
+                this.answer(socket, answer, (function(correct) {
 
-                        // Debug to the console
-                        console.log("User answered question:\n" + socket.questions[socket.questions.length - 1].clue + "\nGave answer:\n" + answer + "They answered " + ((correct) ? "correctly" : "incorrectly"));
+                    // Debug to the console
+                    console.log("User answered question:\n" + socket.questions[socket.questions.length - 1].clue + "\nGave answer:\n" + answer + "They answered " + ((correct) ? "correctly" : "incorrectly"));
 
-                            // Tell the user whether they were right or not
-                            socket.emit('answer_status', correct);
-                      
-                             // Tell all the users that his score was updated
-                            this.nsp.emit('player_score', socket.username, socket.progress);
+                    // Tell the user whether they were right or not
+                    socket.emit('answer_status', correct);
 
-                            // If the user surpassed the number of correct answers needed to win, emit the game_over event
-                            if(socket.progress >= this.goal) {
-                                this.nsp.emit('game_over');
-                            }
-                    }).bind(this));
-                
+                    // Tell all the users that his score was updated
+                    this.nsp.emit('player_score', socket.username, socket.progress);
+
+                    // If the user surpassed the number of correct answers needed to win, emit the game_over event
+                    if (socket.progress >= this.goal) {
+                        this.nsp.emit('game_over');
+                    }
+
+                }).bind(this));
+
             }).bind(this));
 
             // The user asks for a new question
@@ -366,35 +333,35 @@ this.answer(socket, answer, (function(correct) {
                     // Use the helpoer function to send them their next question
                     self.sendQuestionTo(socket);
                 }*/
-                for(var key in this.nsp.connected) {
+                for (var key in this.nsp.connected) {
                     var socket = this.nsp.connected[key];
                     // Use the helpoer function to send them their next question
                     this.sendQuestionTo(socket);
                 }
 
                 // Don't wait for this function to finish
-                process.nextTick(function(){
-                    
+                process.nextTick(function() {
+
                 });
 
             }).bind(this));
 
-            // If a user asks to become the admin 
+            // If a user asks to become the admin
             socket.on('request_admin', function(code) {
 
             });
 
             // last but not least, send all the currently connected users to show them if their friends have joined yet
             //self.sendAllConnectedUsersToSocket(socket);
-this.sendAllConnectedUsersToSocket(socket);
+            this.sendAllConnectedUsersToSocket(socket);
 
             // Push it to the background
-            process.nextTick(function(){
+            process.nextTick(function() {
                 console.log("Finished setting up " + socket.id);
             });
         }).bind(this));
     }
-/*
+    /*
     saveGameStarted() {
         this.started = true;
     }

@@ -1,6 +1,6 @@
 <html>
     <head>
-        
+
         <!-- Get the config script -->
         <script src="config.js"></script>
 
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-          
+
 
         <!-- Mapping libraries -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
@@ -24,7 +24,7 @@
         <script src="lib/Player.js"></script>
 
         <!-- Load the modal library -->
-        <script src="lib/Modal.js"></script> 
+        <script src="lib/Modal.js"></script>
 
         <!-- Load the bottom bar library -->
         <script src="lib/BottomBar.js"></script>
@@ -66,7 +66,7 @@
     </head>
 
     <body>
-        
+
         <!-- The base view of the page -->
         <div id="container">
 
@@ -76,7 +76,7 @@
                 <!-- The map will be placed here programatically -->
 
             </div>
- 
+
             <!-- The sidebar list of player scores -->
             <div id="sb">
 
@@ -91,7 +91,7 @@
         </div>
         <!-- The bottom (question bar) section -->
                 <div id="bb">
-                    
+
                     <!-- The question card -->
                     <div id="bb_Card" class="demo-card-wide mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title">
@@ -132,7 +132,7 @@
                 </div>
         <!-- Modal views which are hidden by default -->
             <!-- Default Text Input Modal Structure -->
-           
+
 
         <!-- Define the HTML for a modal popup -->
         <dialog class="mdl-dialog"id="textInputModal">
@@ -150,7 +150,7 @@
                 </div>
         </dialog>
         <input type="hidden" id="textInputModal_Stage"></input>
-        
+
         <!-- Define the HTML for a modal popup without an input -->
         <dialog class="mdl-dialog"id="textDisplayModal">
             <h4 class="mdl-dialog__title" id="textDisplayModal_Title">Test Modal Dialog</h4>
@@ -163,9 +163,9 @@
         </dialog>
     </body>
 
-        <!-- Almost Last, but not least, Create an instance of the API 
+        <!-- Almost Last, but not least, Create an instance of the API
           - If we did it any sooner, initilizer for BottomBar.js
-          - wouldn't work because the HTML element wounldn't have been created yet  
+          - wouldn't work because the HTML element wounldn't have been created yet
     -->
         <script>
             var api = new API(config.server);
@@ -223,7 +223,7 @@
         if(pageUrl.metadataVersion < 2) {
             joinConnectionV1();
         } else if(pageUrl.metadataVersion == 2) {
-            
+
             // Get the room id and the name the user is to join with
             var roomId = pageUrl.gameId;
             var username = pageUrl.username;
@@ -243,7 +243,7 @@
             }
 
         }
-        
+
     </script>
 
     <!-- Handle connections to the game server -->
@@ -279,4 +279,11 @@
                 }
             });
 	    </script>
+
+      <!-- Listen for page resizes so we can update the map's sizing -->
+      <script>
+        window.onresize = function(event) {
+          //map.resize();
+        }
+      </script>
 </html>
