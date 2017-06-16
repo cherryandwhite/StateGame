@@ -1,0 +1,34 @@
+{
+	"questions": [
+		{
+      "clue": "Trinity Test Site is in this state",
+      "category": "history",
+      "difficulty": 3
+    },
+    {
+      "clue": "The largest hot air balloon festival takes places annually in this state",
+      "category": "random",
+      "difficulty": 2
+    },
+    {
+      "clue": "Santa Fe is the capital",
+      "category": "capitals",
+      "difficulty": 2
+    },
+    {
+      "clue": "The South-East component of the four corners",
+      "category": "geography",
+      "difficulty": 1
+    },
+    {
+      "clue": "\"Tierra del Encanto\" (The Land of Enchantment)",
+      "category": "nicknames",
+      "difficulty": 3
+    },
+    {
+      "clue": "It is the 5th largest state, and was the 47th state admitted to the Union",
+      "category": "random",
+      "difficulty": 4
+    }
+  ]
+}

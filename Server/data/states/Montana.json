@@ -1,0 +1,24 @@
+{
+	"questions": [
+		{
+      "clue": "\"Big Sky Country\"",
+      "category": "nicknames",
+      "difficulty": 2
+    },
+    {
+      "clue": "Helena is its capital",
+      "category": "capitals",
+      "difficulty": 3
+    },
+    {
+      "clue": "The Missouri begins in this state",
+      "category": "geography",
+      "difficulty": 4
+    },
+    {
+      "clue": "\"The Treasure State\"",
+      "category": "nicknames",
+      "difficulty": 4
+    }
+  ]
+}

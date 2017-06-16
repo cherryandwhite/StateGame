@@ -1,0 +1,39 @@
+{
+	"questions": [
+		{
+      "clue": "You can find Sin City in this state",
+      "category": "places",
+      "difficulty": 2
+    },
+    {
+      "clue": "This state is home to the tallest Eiffel Tower replica in the United States",
+      "category": "buildings",
+      "difficulty": 2
+    },
+    {
+      "clue": "Carson City is the capital of this state",
+      "category": "capitals",
+      "difficulty": 3
+    },
+    {
+      "clue": "The Hoover Dam is here",
+      "category": "buildings",
+      "difficulty": 3
+    },
+    {
+      "clue": "During the 1950s, the U.S. Government regularly tested atomic bombs near the Nellis Air Force base here",
+      "category": "history",
+      "difficulty": 4
+    },
+    {
+      "clue": "Black Rock Desert is in this state",
+      "category": "geography",
+      "difficulty": 4
+    },
+    {
+      "clue": "This state's shape features a long diagonal slant",
+      "category": "geography",
+      "difficulty": 2
+    }
+  ]
+}

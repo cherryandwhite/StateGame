@@ -1,0 +1,34 @@
+{
+	"questions": [
+		{
+      "clue": "Jefferson City is the capital",
+      "category": "capitals",
+      "difficulty": 3
+    },
+    {
+      "clue": "The Gateway Arch towers 630ft above this state",
+      "category": "buildings",
+      "difficulty": 2
+    },
+    {
+      "clue": "In 1820, the Compromise sharing this state's name was passed. It disallowed slavery above this state's northern border.",
+      "category": "history",
+      "difficulty": 4
+    },
+    {
+      "clue": "Mark Twain National Forest is here",
+      "category": "geography",
+      "difficulty": 4
+    },
+    {
+      "clue": "The Japanese surrendered to the Allies on the U.S. Ship bearing this state's name",
+      "category": "history",
+      "difficulty": 4
+    },
+    {
+      "clue": "President Truman was from this state",
+      "category": "people",
+      "difficulty": 4 
+    }
+  ]
+}

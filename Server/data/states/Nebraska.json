@@ -1,0 +1,24 @@
+{
+	"questions": [
+		{
+      "clue": "Lincoln is the capital city",
+      "category": "capitals",
+      "difficulty": 3
+    },
+    {
+      "clue": "\"The Cornhusker State\"",
+      "category": "nicknames",
+      "difficulty": 2
+    },
+    {
+      "clue": "Complete the following: The Kansas-??? Act",
+      "category": "history",
+      "difficulty": 2
+    },
+    {
+      "clue": "The Original Transcontinental Railroad ran through this state which is aligned in a \"column\" with the Dakotas",
+      "category": "geography",
+      "difficulty": 2
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+	"questions": [
+		{
+      "clue": "The Outer Banks are in this state",
+      "category": "places",
+      "difficulty": 2
+    },
+    {
+      "clue": "Wilbur and Orville Wright flew here in 1903",
+      "category": "history",
+      "difficulty": 2
+    },
+    {
+      "clue": "Raleigh is the capital",
+      "category": "capitals",
+      "difficulty": 3
+    }
+  ]
+}

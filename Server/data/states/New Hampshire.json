@@ -1,0 +1,19 @@
+{
+	"questions": [
+		{
+      "clue": "Of states with an ocean border, this state's is the smallest",
+      "category": "geography",
+      "difficulty": 3
+    },
+    {
+      "clue": "Concord is the capital of this state",
+      "category": "capitals",
+      "difficulty": 3
+    },
+    {
+      "clue": "Mount Washington is in this state",
+      "category": "places",
+      "difficulty": 3
+    }
+  ]
+}

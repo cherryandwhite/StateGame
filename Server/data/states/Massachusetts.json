@@ -39,6 +39,11 @@
             "clue": "Aside from Connecticut, it is the only state to border Rhode Island",
             "category": "geography",
             "difficulty": 2
-        }
+        },
+				{
+					"clue": "This school has the best school system in the U.S. as of 2016",
+					"category": "education",
+					"difficulty": 4
+				}
     ]
 }
