@@ -40,6 +40,11 @@ class Game {
 
         // The gamemode
         this.mode = mode;
+
+        // The library for saving user complaint
+        var ComplaintSaver = require('./Complaints.js').class;
+        this.complaintSaver = new ComplaintSaver();
+
     }
 
     // Called to join a socket to the game
@@ -305,6 +310,26 @@ class Game {
                     }
 
                 }).bind(this));
+
+            }).bind(this));
+
+            // The user doesn't like a question
+            socket.on('complain', (function(reason) {
+
+              // Create the object
+              var obj = {};
+
+              // Set the username property to this socket's
+              obj.username = socket.username;
+
+              // Set the question object to the question last added to the socket
+              obj.question = socket.questions[((socket.questions.length > 0) ? socket.questions.length - 1 : 0)];
+
+              // Set the reason as stated in the event data
+              obj.reason = reason;
+
+              // Save this using the library
+              this.complaintSaver.saveComplaint(obj);
 
             }).bind(this));
 

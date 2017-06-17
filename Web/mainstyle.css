@@ -7,6 +7,17 @@
 
 }
 
+.bottom {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+}
+
+.forceUrl {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 body {
 background-image: url('assets/img/America.jpg') center / cover;
 font-family: 'Roboto', sans-serif;

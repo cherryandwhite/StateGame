@@ -30,7 +30,7 @@ API.prototype.uiBindings = function() {
 }
 
 API.prototype.answer = function(answer) {
-    
+
     // Emit the answer event
     this.socket.emit('answer_question', answer);
 
@@ -82,19 +82,19 @@ API.prototype.loadHandlers = function() {
    }).bind(this));
 
    this.socket.on('player_joined', (function(username) {
-    
+
         // Check if this is actually us
        if(username == this.username) {
-        
+
             // Show a simple welcome message
             this.bottomBar.showBasicMessage("Welcome " + this.username, "Click the state descibed by the question. Be the first to reach the goal set by the mod! Now...just wait for the game to start!");
-      
+
             // Stop loading on the main div
             stopLoadingOnDiv("container");
 
             // Do extra if we're admin
             if(this.isAdmin) {
-                    
+
                 // Show the start game button
                 document.getElementById("adminSplashPage").style.visibility = '';
             }
@@ -131,14 +131,16 @@ API.prototype.loadHandlers = function() {
        }
 
         // Present a popup with a message
-        this.bottomBar.showMessage(((correct) ? "Correct!" : "Wrong!"), ((correct) ? "Keep the streak alive!" : "Better luck on the next one"), "Next Question", (function() {
+        this.bottomBar.showMessage(((correct) ? "Correct!" : "Wrong!"),
+          ((correct) ? "Keep the streak alive! <div id='complain' class='bottom'><a class='forceUrl' onclick='api.showComplaintOptions()'>Bad Question?</a></div>" : "Better luck on the next one"), "Next Question",
+          (function() {
 
             // Go to the next question
             this.nextQuestion();
 
         }).bind(this));
    }).bind(this));
-   
+
    this.socket.on('player_score', (function(username, score) {
 
         // Update the right bar of this user
@@ -148,8 +150,8 @@ API.prototype.loadHandlers = function() {
         var index = this.indexOfPlayerByUsername(username);
 
         // Make sure the user was actually in the array
-        if(index < 0) { 
-            return; 
+        if(index < 0) {
+            return;
         }
 
         // Update their score in the array
@@ -159,7 +161,7 @@ API.prototype.loadHandlers = function() {
    }).bind(this));
 
    this.socket.on('game_over', (function() {
-        
+
         // Create an object containing parts of the game data
         var data = {
             players: []
@@ -214,4 +216,26 @@ API.prototype.indexOfPlayerByUsername = function(name) {
     }
 
     return -1;
+}
+
+API.prototype.showComplaintOptions = function() {
+  // Create buttons for each reason
+  var div = document.getElementById('complain');
+
+  // Add the buttons
+  div.innerHTML = '<a class="foceUrl" onclick="api.complain(1)">Spelling/Grammar</a> | <a class="foceUrl" onclick="api.complain(2)">Incorrect</a> | <a class="foceUrl" onclick="api.complain(3)">Other</a>';
+
+}
+
+API.prototype.complain = function(id) {
+  if(id == 1) {
+    this.socket.emit('complain', 'spelling/grammar');
+  } else if(id == 2) {
+    this.socket.emit('complain', 'incorrect');
+  } else if(id == 3) {
+    this.socket.emit('complain', 'other');
+  }
+
+  // Put a message saying thanks
+  document.getElementById('complain').innerHTML = '<span>Thanks!</span>';
 }

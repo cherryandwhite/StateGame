@@ -26,7 +26,7 @@ class QuestionMaker {
         // We already handeled errors in randomQuestionForState, so just return whether it's null or not
         return question;
     }
-    
+
     randomQuestionForState(state) {
 
         // Get that state's data file as an object
@@ -70,7 +70,7 @@ class QuestionMaker {
 
         // If not, get a random number between 0 and the end length - 1
         var index = this.rand(0,arr.length - 1);
-        
+
         // Return that item
         return arr[index];
     }
