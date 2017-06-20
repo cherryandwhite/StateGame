@@ -1,13 +1,15 @@
 // React Imports
-import React from 'react';
+import React, { Component } from 'react';
 
 // More react imports
 import { Text } from 'react-native';
 
-class State extends Component {
+class StateView extends Component {
   render() {
     return (
-      <Text>{{this.props.state}}</Text>
+      <Text>{this.props.state}</Text>
     )
   }
 }
+
+module.exports = StateView
