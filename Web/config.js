@@ -1,6 +1,6 @@
 var config = {
     name: "State Game",
-    server: "http://localhost:3000"
+    server: "http://178.128.147.205:3000"
 }
 
 // Utility method for checking whether this is embedded in an electron app
