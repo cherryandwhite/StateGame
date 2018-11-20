@@ -6,7 +6,8 @@ StateGame is played in the browser, but is managed by a Nodejs server. Therefore
 
 ## Game Server Setup
 1. Run `git clone https://github.com/brendanmanning/StateGame.git && cd StateGame`
-2. Start server `node start index.js`
+2. Install dependencies `npm install`
+3. Start server `node start index.js`
 
 ## Web Client Setup
 1. Copy contents of Web folder to your webserver
