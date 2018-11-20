@@ -5,7 +5,7 @@ Multiplayer Map Based Game for Guessing States
 StateGame is played in the browser, but is managed by a Nodejs server. Therefore, we need to setup a webserver and a game server. Please follow the steps below, in that order.
 
 ## Game Server Setup
-1. Run `git clone https://github.com/brendanmanning/StateGame.git && cd StateGame`
+1. Run `git clone https://github.com/brendanmanning/StateGame.git && cd StateGame && cd Server`
 2. Install dependencies `npm install`
 3. Start server `node start index.js`
 
